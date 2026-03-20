@@ -1,18 +1,22 @@
-import { defineConfig, globalIgnores } from "eslint/config";
-import nextVitals from "eslint-config-next/core-web-vitals";
-import nextTs from "eslint-config-next/typescript";
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  // Esta seção faz a "máscara" da URL
+  async rewrites() {
+    return [
+      {
+        source: '/votar',        // O que aparece na URL
+        destination: '/votacao', // A pasta real no seu projeto
+      },
+      {
+        source: '/painel',       // O que aparece na URL
+        destination: '/adm',     // A pasta real no seu projeto
+      },
+      {
+        source: '/concluido',    // O que aparece na URL
+        destination: '/obrigado',// A pasta real no seu projeto
+      },
+    ];
+  },
+};
 
-const eslintConfig = defineConfig([
-  ...nextVitals,
-  ...nextTs,
-  // Override default ignores of eslint-config-next.
-  globalIgnores([
-    // Default ignores of eslint-config-next:
-    ".next/**",
-    "out/**",
-    "build/**",
-    "next-env.d.ts",
-  ]),
-]);
-
-export default eslintConfig;
+export default nextConfig;

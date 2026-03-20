@@ -71,8 +71,9 @@ export default function Home() {
       if (aluno) {
         // VERIFICAÇÃO DE VOTO JÁ REALIZADO
         if (aluno.is_active === true || aluno.is_active === "true") {
-          showModal("Voto já Registrado", "Você já participou desta eleição. O sistema reiniciará em 5 segundos.");
+          showModal("Voto já Registrado", "Você já participou desta eleição.");
           setLoading(false);
+          
           
           // Reinicia a página após 5 segundos
           setTimeout(() => {
