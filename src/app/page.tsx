@@ -136,7 +136,7 @@ export default function Home() {
               onClick={() => window.location.reload()}
               className="w-full py-4 bg-white text-black rounded-2xl font-black text-xs uppercase tracking-widest hover:bg-blue-500 hover:text-white transition-all active:scale-95"
             >
-              Reiniciar Agora
+              Tentar Novamente
             </button>
           </div>
         </div>
