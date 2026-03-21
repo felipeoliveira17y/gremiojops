@@ -44,7 +44,7 @@ export function Sidebar() {
         onClick={handleLogout}
         className="bg-red-500/10 text-red-500 hover:bg-red-500 hover:text-white p-3 rounded-xl text-xs font-black transition-all border border-red-500/20"
       >
-        LOGOUT / SAIR
+        SAIR
       </button>
     </aside>
   );
