@@ -142,7 +142,7 @@ export default function PaginaVotacao() {
         
         <CartaoChapa 
           numero="01" 
-          nome="Chapa 01" 
+          nome="Conexão Jovem" 
           slogan="Unindo ideias, fortalecendo vozes." 
           cor="border-indigo-500/40"
           onVotar={() => prepararVoto("Chapa 1")} 
@@ -150,16 +150,14 @@ export default function PaginaVotacao() {
 
         <CartaoChapa 
           numero="02" 
-          nome="Chapa 02" 
-          slogan="União e compromisso estudantil." 
+          nome="Alinça Escolar" 
           cor="border-violet-500/40"
           onVotar={() => prepararVoto("Chapa 2")} 
         />
 
         <CartaoChapa 
           numero="03" 
-          nome="Chapa 03" 
-          slogan="Inovação e progresso para todos." 
+          nome="Atitude Jovem com Proposta" 
           cor="border-emerald-500/40"
           onVotar={() => prepararVoto("Chapa 3")} 
         />
