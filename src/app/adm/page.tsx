@@ -19,9 +19,11 @@ ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
 export default function AdmPage() {
   const router = useRouter();
 
+  // 1. ADICIONADA A CHAPA 3 NO ESTADO INICIAL
   const [candidatos, setCandidatos] = useState([
     { nome: "Chapa 1", votos: 0 },
     { nome: "Chapa 2", votos: 0 },
+    { nome: "Chapa 3", votos: 0 },
     { nome: "Nulo", votos: 0 },
   ]);
 
@@ -49,19 +51,22 @@ export default function AdmPage() {
   async function buscarVotos() {
     const { data } = await supabase.from("votacao").select("chapa");
 
-    let c1 = 0, c2 = 0, nulo = 0;
+    // 2. ATUALIZADA A LÓGICA DE CONTAGEM
+    let c1 = 0, c2 = 0, c3 = 0, nulo = 0;
 
     data?.forEach((v) => {
       const chapaVotada = v.chapa?.toLowerCase().trim();
 
       if (["chapa 1", "chapa 01", "1"].includes(chapaVotada)) c1++;
       else if (["chapa 2", "chapa 02", "2"].includes(chapaVotada)) c2++;
+      else if (["chapa 3", "chapa 03", "3"].includes(chapaVotada)) c3++; // CONTAGEM CHAPA 3
       else nulo++;
     });
 
     setCandidatos([
       { nome: "Chapa 1", votos: c1 },
       { nome: "Chapa 2", votos: c2 },
+      { nome: "Chapa 3", votos: c3 },
       { nome: "Nulo", votos: nulo },
     ]);
   }
@@ -111,9 +116,10 @@ export default function AdmPage() {
                 label: "Votos",
                 data: candidatos.map(c => c.votos),
                 backgroundColor: [
-                  "#3B82F6", // azul
-                  "#EF4444", // vermelho
-                  "#6B7280"  // cinza
+                  "#3B82F6", // azul (Chapa 1)
+                  "#8B5CF6", // violeta (Chapa 2)
+                  "#10B981", // esmeralda (Chapa 3) - Cor correspondente ao card de votação
+                  "#6B7280"  // cinza (Nulo)
                 ],
                 borderRadius: 10,
               }],
